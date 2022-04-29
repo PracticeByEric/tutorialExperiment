@@ -1,3 +1,3 @@
-# hello
+This directory include my practices of codes,
 
-# hi
+Before submission to tutorials I follow. 
