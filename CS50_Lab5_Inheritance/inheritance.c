@@ -46,8 +46,13 @@ person *create_family(int generations)
     //create a newperson
     person* newperson = malloc(sizeof(person));
     
-
-        // If there are still generations left to create
+    if(newperson == NULL)
+    {
+      return 0;
+    }
+    
+    else{
+      // If there are still generations left to create
       if (generations > 1)
       {
         // Create two new parents for current person by recursively calling create_family
@@ -82,6 +87,7 @@ person *create_family(int generations)
     return newperson;
 
     // return NULL;
+    }
 
 }
 
