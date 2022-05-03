@@ -27,7 +27,7 @@ int monthConversion(int months)
   return month;
 }
 
-void accumulation(int startAge,double initial, retire_info working, retire_info retired)
+void calculation(int startAge,double initial, retire_info working, retire_info retired)
 {
   int initialAge;
   int totalMonths;
@@ -83,5 +83,5 @@ int main(void)
   retired.contribution = -4000;
   retired.rate_of_return = 0.01 / 12;
 
-  accumulation(age, saving, working,retired);
+  calculation(age, saving, working, retired);
 }
