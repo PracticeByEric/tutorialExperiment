@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 //size of name
 #define MAX_NAME 256
@@ -45,6 +46,9 @@ void init_hash_table()
 //STEP 4_Print out the table
 void print_hash_table()
 {
+  //declar start of table
+  printf("Start\n");
+
   for(int i = 0; i < TABLE_SIZE; i++)
   {
     //nothing in table: print sequential number
@@ -58,20 +62,17 @@ void print_hash_table()
       printf(" %i %s \n", i, hash_table[i]->name);
     }
   }
+
+    //declar end of table
+  printf("End\n");
 }
 
+//Main
 int main(void)
 {
-  
-  print_hash_table();
 
-  /*
-  printf("Jack => %u\n", hash("Jack"));
-  printf("Eric => %u\n", hash("Eric"));
-  printf("Jackie => %u\n", hash("Jackie"));
-  printf("Mandy => %u\n", hash("Mandy"));
-  printf("Bob => %u\n", hash("Bob"));
-  */
+  init_hash_table();
+   print_hash_table();
 
   return 0;
 }
