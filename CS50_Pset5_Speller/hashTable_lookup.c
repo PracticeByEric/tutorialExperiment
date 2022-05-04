@@ -90,7 +90,7 @@ person *hash_table_lookup(char *name)
 {
   int index = hash(name);
   if (hash_table[index] != NULL && 
-  strcmp(hash_table[index]->name, name) == 0)
+  strncmp(hash_table[index]->name, name, TABLE_SIZE) == 0)
   {
     return hash_table[index];
   }
@@ -100,7 +100,7 @@ person *hash_table_lookup(char *name)
   }
 }
 
-int main()
+int main(void)
 {
   init_hash_table();
   print_table();
