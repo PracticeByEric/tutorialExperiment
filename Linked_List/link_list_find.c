@@ -29,7 +29,7 @@ node_t *add_to_list(node_t *head, node_t *next_node)
 /*
 TO FIND VALUE IN THE LINKED LIST
 */
-node_t *find_link_list(node_t *head, int number_to_find)
+node_t *find_node(node_t *head, int number_to_find)
 {
   node_t *tmp = head;
 
@@ -38,8 +38,8 @@ node_t *find_link_list(node_t *head, int number_to_find)
     if(tmp->value == number_to_find)
     {
       return tmp;
-      tmp = tmp->next;
     }
+    tmp = tmp->next;
   }
   return NULL;
 }
@@ -60,6 +60,7 @@ bool print_linked_list(node_t *head)
       printf("%d ", tmp->value);
       tmp = tmp->next;
     }
+  printf("\n");
   return true; 
   }
 }
@@ -75,8 +76,15 @@ int main()
     head = add_to_list(head, tmp);
   }
 
-  tmp = find_link_list(head, 9);
-  printf("%d \n", tmp->value);
+    print_linked_list(head);
 
-  print_linked_list(head);
+  tmp = find_node(head, 9);
+  if(tmp == NULL)
+  {
+    printf("Not found!\n");
+  }
+  else
+  {
+    printf("Found the number %d\n", tmp->value);
+  }
 }
