@@ -46,9 +46,10 @@ void insert_after_node(node_t *node_to_insert_after, node_t *new_node)
   new_node->next = node_to_insert_after->next;
   node_to_insert_after->next = new_node;
   */
-  new_node->next = node_to_insert_after->next;
+  new_node->next = node_to_insert_after->next;  //区别是head和前一项->next
   node_to_insert_after->next = new_node;
 }
+//??HOW TO PRESENT THIS GRAPHICALLY???
 
 node_t *find_node(node_t *head, int number)
 {
