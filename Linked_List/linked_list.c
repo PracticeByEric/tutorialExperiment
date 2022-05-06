@@ -1,4 +1,5 @@
 /*
+  How to create a linked list
   Tutorial on https://www.youtube.com/watch?v=VOpjAHCee7c
 */
 
