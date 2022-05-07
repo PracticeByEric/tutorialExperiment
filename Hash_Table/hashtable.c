@@ -40,6 +40,7 @@ void init_hash_table()
   }
 }
 
+//insert to hash table
 bool hash_table_insert(person *p)
 {
   if(p == NULL)
@@ -78,6 +79,29 @@ person *hash_table_find(char *name)
   return NULL;
 }
 
+//delete person in hash table
+/*To remove means set the pointer back to NULL*/
+person *hash_table_delete(char *name)
+{
+  int index = hash(name);
+
+  for(int i = 0; i < TABLE_SIZE; i++)
+  {
+    //found the location
+    if(hash_table[index] != NULL &&
+      strncmp(hash_table[index]->name, name, TABLE_SIZE) == 0)
+    {
+      //save the data inside of a temporary pointer
+      person *tmp = hash_table[index];
+      //remove
+      hash_table[index] = NULL;
+      return tmp;
+    }
+  }
+  return NULL;
+}
+
+//print out hash table
 void print_hash_table()
 {
   for(int i = 0; i < TABLE_SIZE; i++)
@@ -112,6 +136,12 @@ int main()
   {
     printf("Found the person named %s.\n", toFind->name);
   }
+
+//remove jack from the hash table
+  hash_table_delete("jack");
+
+//print out new table
+  print_hash_table();
 
   return 0;
 }
