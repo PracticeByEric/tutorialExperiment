@@ -74,14 +74,12 @@ person *hash_table_find(char *name)
 {
   int index = hash(name);
 
-  for(int i = 0; i < TABLE_SIZE; i++)
-  {
     if(hash_table[index] != NULL &&
       strncmp(hash_table[index]->name, name, TABLE_SIZE) == 0)
     {
       return hash_table[index];
     }
-  }
+    
   return NULL;
 }
 
