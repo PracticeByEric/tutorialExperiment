@@ -51,15 +51,23 @@ bool hash_table_insert(person *p)
   {
     int index = hash(p->name);
 
-    if(hash_table[index] != NULL)
+    //update for linear probing
+    for(int i = 0; i < TABLE_SIZE; i++)
     {
-      return false;
+      //update index
+      int try = ( index + i ) % TABLE_SIZE;
+
+      //from index to all other following "slots" in hash table
+      //if found
+      if(hash_table[try] == NULL)
+      {
+        // add value
+        hash_table[try] = p;
+        return true;
+      }
     }
-    else
-    {
-      hash_table[index] = p;
-      return true;
-    }
+    //not found, return false
+    return false;
   }
 }
 
