@@ -1,25 +1,10 @@
-from csv import DictReader
+import csv
 
-#DictReader use the first row of the cvs
-#as the key to access data
+with open("NameRecords.csv", "r") as f:
+  csv_reader = csv.DictReader(f)
+  name_records = list(csv_reader) #list: name_records
 
-f = open("weather.csv", "r") #open file for read
-
-#DicReader will produce iterable result (able to use "for loop")
-reader = DictReader(f)
-#rememebr the first line of the CSV file "key"
-#each subsiquent line is producing an object
-
-#read each row from csv "weather.csv" into dictionary row
-#key is the column: 'hight', 'low' 'precipitation'
-for row in reader:
-  print(row) #print each dictionary row
-  #a new dictionary, hold dict[str for keys, float: for values]
-  float_row: Dict[str, float] = {}
-
-  for column in row:
-
-
-f.close() #cloe file after opening
-
-#----->>> TO DO<<<-----
+  #for each dictionary in list "name_records"
+  for record in name_records:
+    #print items in each record through "keys"
+    print(f"{record['First name']}{record['Last name']}: {record['Age']}")
