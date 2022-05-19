@@ -7,6 +7,7 @@
 
 import csv
 
+#open the csv file and read into a list
 with open("cars.csv", "r") as f:
   csv_read = csv.DictReader(f)
   car_list = list(csv_read)
@@ -16,11 +17,13 @@ def add_element(dict, key, value):
     dict[key] = []
   dict[key].append(value)
 
+#reorganize the list into one dictionary 同类型合并
 car_brand = {}
 
 for car in car_list:
   add_element(car_brand, car['Make'], int(car['Horsepower']))
 
+#calculate the average and put inside of a new dictionary
 car_average_hp = {}
 
 for car, hp_list in car_brand.items():
